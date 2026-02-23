@@ -22,8 +22,8 @@ export async function GET(
 
         let downloadUrl = null;
         if (job.status === "COMPLETED" && job.outputKey) {
-            // Local URL for public/uploads directory
-            downloadUrl = `/uploads/${job.outputKey}`;
+            // Stream explicitly through download API route to bypass Next.js static router cache limits
+            downloadUrl = `/api/download?file=${job.outputKey}`;
         }
 
         return NextResponse.json({
