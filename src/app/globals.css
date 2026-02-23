@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #e11d48;
+  --color-brand-secondary: #be123c;
+  --color-brand-accent: #fb7185;
+  
+  --color-bg-main: #ffffff;
+  --color-bg-alt: #f8fafc;
+  --color-text-main: #0f172a;
+  --color-text-muted: #64748b;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --brand: #e11d48;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #020617;
+    --foreground: #f8fafc;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  scroll-behavior: smooth;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary {
+  @apply px-6 py-3 bg-rose-600 hover:bg-rose-700 text-white rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-rose-200 dark:shadow-rose-900/20 active:scale-95 flex items-center gap-2;
+}
+
+.card-gradient {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+}

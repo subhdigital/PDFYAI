@@ -1,0 +1,23 @@
+
+> pdf-app@0.1.0 build
+> next build --webpack
+
+[1m[38;2;173;127;168m▲ Next.js 16.1.6[39m[22m (webpack)
+- Environments: .env
+
+[37m[1m [22m[39m Creating an optimized production build ...
+[32m[1m✓[22m[39m Compiled successfully in 3.4s
+[37m[1m [22m[39m Running TypeScript ...
+[31mFailed to compile.
+[39m
+[36m./src/lib/processor.ts[39m:[33m58[39m:[33m28[39m
+[31m[1mType error[22m[39m: Expected 1 arguments, but got 0.
+
+[0m [90m 56 |[39m             outputBuffer [33m=[39m [33mBuffer[39m[33m.[39m[36mfrom[39m([36mawait[39m splitPdf[33m.[39msave())[33m;[39m
+ [90m 57 |[39m         } [36melse[39m [36mif[39m (job[33m.[39mtype [33m===[39m [32m"PDF_TO_WORD"[39m) {
+[31m[1m>[22m[39m[90m 58 |[39m             [36mconst[39m parser [33m=[39m [36mnew[39m [33mPDFParse[39m()[33m;[39m
+ [90m    |[39m                            [31m[1m^[22m[39m
+ [90m 59 |[39m             [36mawait[39m parser[33m.[39mload(inputBuffer)[33m;[39m
+ [90m 60 |[39m             [36mconst[39m data [33m=[39m [36mawait[39m parser[33m.[39mgetText()[33m;[39m
+ [90m 61 |[39m             [36mconst[39m doc [33m=[39m [36mnew[39m [33mDocument[39m({[0m
+Next.js build worker exited with code: 1 and signal: null

@@ -1,0 +1,127 @@
+
+> pdf-app@0.1.0 build
+> next build --webpack
+
+[1m[38;2;173;127;168m▲ Next.js 16.1.6[39m[22m (webpack)
+- Environments: .env
+
+[37m[1m [22m[39m Creating an optimized production build ...
+[31mFailed to compile.
+[39m
+./src/app/jpg-to-pdf/page.tsx
+Error:   x Unterminated string constant
+   ,-[C:\Users\Vishal Singh\Desktop\PDFYAI\src\app\jpg-to-pdf\page.tsx:1:1]
+ 1 | "use client"; import PDFToolBase from "@/components/tools/PDFToolBase"; export default function ToolPage() { return <PDFToolBase title=\"JPG TO PDF\" description=\"Professional PDF tool.\" onProcess={async () => \"#\"} />; }
+   :                                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   `----
+  x Expected unicode escape
+   ,-[C:\Users\Vishal Singh\Desktop\PDFYAI\src\app\jpg-to-pdf\page.tsx:1:1]
+ 1 | "use client"; import PDFToolBase from "@/components/tools/PDFToolBase"; export default function ToolPage() { return <PDFToolBase title=\"JPG TO PDF\" description=\"Professional PDF tool.\" onProcess={async () => \"#\"} />; }
+   :                                                                                                                                        ^
+   `----
+  x JSX value should be either an expression or a quoted JSX text
+   ,-[C:\Users\Vishal Singh\Desktop\PDFYAI\src\app\jpg-to-pdf\page.tsx:1:1]
+ 1 | "use client"; import PDFToolBase from "@/components/tools/PDFToolBase"; export default function ToolPage() { return <PDFToolBase title=\"JPG TO PDF\" description=\"Professional PDF tool.\" onProcess={async () => \"#\"} />; }
+   :                                                                                                                                        ^
+   `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/jpg-to-pdf/page.tsx
+
+./src/app/ocr/page.tsx
+Error:   x Unterminated string constant
+   ,-[C:\Users\Vishal Singh\Desktop\PDFYAI\src\app\ocr\page.tsx:1:1]
+ 1 | "use client"; import PDFToolBase from "@/components/tools/PDFToolBase"; export default function ToolPage() { return <PDFToolBase title=\"OCR\" description=\"Professional PDF tool.\" onProcess={async () => \"#\"} />; }
+   :                                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   `----
+  x Expected unicode escape
+   ,-[C:\Users\Vishal Singh\Desktop\PDFYAI\src\app\ocr\page.tsx:1:1]
+ 1 | "use client"; import PDFToolBase from "@/components/tools/PDFToolBase"; export default function ToolPage() { return <PDFToolBase title=\"OCR\" description=\"Professional PDF tool.\" onProcess={async () => \"#\"} />; }
+   :                                                                                                                                        ^
+   `----
+  x JSX value should be either an expression or a quoted JSX text
+   ,-[C:\Users\Vishal Singh\Desktop\PDFYAI\src\app\ocr\page.tsx:1:1]
+ 1 | "use client"; import PDFToolBase from "@/components/tools/PDFToolBase"; export default function ToolPage() { return <PDFToolBase title=\"OCR\" description=\"Professional PDF tool.\" onProcess={async () => \"#\"} />; }
+   :                                                                                                                                        ^
+   `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/ocr/page.tsx
+
+./src/app/pdf-to-jpg/page.tsx
+Error:   x Unterminated string constant
+   ,-[C:\Users\Vishal Singh\Desktop\PDFYAI\src\app\pdf-to-jpg\page.tsx:1:1]
+ 1 | "use client"; import PDFToolBase from "@/components/tools/PDFToolBase"; export default function ToolPage() { return <PDFToolBase title=\"PDF TO JPG\" description=\"Professional PDF tool.\" onProcess={async () => \"#\"} />; }
+   :                                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   `----
+  x Expected unicode escape
+   ,-[C:\Users\Vishal Singh\Desktop\PDFYAI\src\app\pdf-to-jpg\page.tsx:1:1]
+ 1 | "use client"; import PDFToolBase from "@/components/tools/PDFToolBase"; export default function ToolPage() { return <PDFToolBase title=\"PDF TO JPG\" description=\"Professional PDF tool.\" onProcess={async () => \"#\"} />; }
+   :                                                                                                                                        ^
+   `----
+  x JSX value should be either an expression or a quoted JSX text
+   ,-[C:\Users\Vishal Singh\Desktop\PDFYAI\src\app\pdf-to-jpg\page.tsx:1:1]
+ 1 | "use client"; import PDFToolBase from "@/components/tools/PDFToolBase"; export default function ToolPage() { return <PDFToolBase title=\"PDF TO JPG\" description=\"Professional PDF tool.\" onProcess={async () => \"#\"} />; }
+   :                                                                                                                                        ^
+   `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/pdf-to-jpg/page.tsx
+
+./src/app/protect-pdf/page.tsx
+Error:   x Unterminated string constant
+   ,-[C:\Users\Vishal Singh\Desktop\PDFYAI\src\app\protect-pdf\page.tsx:1:1]
+ 1 | "use client"; import PDFToolBase from "@/components/tools/PDFToolBase"; export default function ToolPage() { return <PDFToolBase title=\"PROTECT PDF\" description=\"Professional PDF tool.\" onProcess={async () => \"#\"} />; }
+   :                                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   `----
+  x Expected unicode escape
+   ,-[C:\Users\Vishal Singh\Desktop\PDFYAI\src\app\protect-pdf\page.tsx:1:1]
+ 1 | "use client"; import PDFToolBase from "@/components/tools/PDFToolBase"; export default function ToolPage() { return <PDFToolBase title=\"PROTECT PDF\" description=\"Professional PDF tool.\" onProcess={async () => \"#\"} />; }
+   :                                                                                                                                        ^
+   `----
+  x JSX value should be either an expression or a quoted JSX text
+   ,-[C:\Users\Vishal Singh\Desktop\PDFYAI\src\app\protect-pdf\page.tsx:1:1]
+ 1 | "use client"; import PDFToolBase from "@/components/tools/PDFToolBase"; export default function ToolPage() { return <PDFToolBase title=\"PROTECT PDF\" description=\"Professional PDF tool.\" onProcess={async () => \"#\"} />; }
+   :                                                                                                                                        ^
+   `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/protect-pdf/page.tsx
+
+./src/app/unlock-pdf/page.tsx
+Error:   x Unterminated string constant
+   ,-[C:\Users\Vishal Singh\Desktop\PDFYAI\src\app\unlock-pdf\page.tsx:1:1]
+ 1 | "use client"; import PDFToolBase from "@/components/tools/PDFToolBase"; export default function ToolPage() { return <PDFToolBase title=\"UNLOCK PDF\" description=\"Professional PDF tool.\" onProcess={async () => \"#\"} />; }
+   :                                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   `----
+  x Expected unicode escape
+   ,-[C:\Users\Vishal Singh\Desktop\PDFYAI\src\app\unlock-pdf\page.tsx:1:1]
+ 1 | "use client"; import PDFToolBase from "@/components/tools/PDFToolBase"; export default function ToolPage() { return <PDFToolBase title=\"UNLOCK PDF\" description=\"Professional PDF tool.\" onProcess={async () => \"#\"} />; }
+   :                                                                                                                                        ^
+   `----
+  x JSX value should be either an expression or a quoted JSX text
+   ,-[C:\Users\Vishal Singh\Desktop\PDFYAI\src\app\unlock-pdf\page.tsx:1:1]
+ 1 | "use client"; import PDFToolBase from "@/components/tools/PDFToolBase"; export default function ToolPage() { return <PDFToolBase title=\"UNLOCK PDF\" description=\"Professional PDF tool.\" onProcess={async () => \"#\"} />; }
+   :                                                                                                                                        ^
+   `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/unlock-pdf/page.tsx
+
+
+> Build failed because of webpack errors

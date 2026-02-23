@@ -1,0 +1,47 @@
+
+> pdf-app@0.1.0 build
+> next build --webpack
+
+[1m[38;2;173;127;168m▲ Next.js 16.1.6[39m[22m (webpack)
+- Environments: .env
+
+[37m[1m [22m[39m Creating an optimized production build ...
+[32m[1m✓[22m[39m Compiled successfully in 6.3s
+[37m[1m [22m[39m Running TypeScript ...
+[37m[1m [22m[39m Collecting page data using 11 workers ...
+[37m[1m [22m[39m Generating static pages using 11 workers (0/22) ...
+[37m[1m [22m[39m Generating static pages using 11 workers (5/22) 
+[37m[1m [22m[39m Generating static pages using 11 workers (10/22) 
+[37m[1m [22m[39m Generating static pages using 11 workers (16/22) 
+[32m[1m✓[22m[39m Generating static pages using 11 workers (22/22) in 1273.1ms
+[37m[1m [22m[39m Finalizing page optimization ...
+[37m[1m [22m[39m Collecting build traces ...
+
+[4mRoute (app)[24m
+┌ ○ /
+├ ○ /_not-found
+├ ○ /admin
+├ ƒ /api/admin/stats
+├ ƒ /api/auth/[...nextauth]
+├ ƒ /api/jobs/[id]
+├ ƒ /api/jobs/create
+├ ƒ /api/jobs/user
+├ ƒ /api/upload
+├ ○ /compress-pdf
+├ ○ /dashboard
+├ ○ /jpg-to-pdf
+├ ○ /merge-pdf
+├ ○ /ocr
+├ ○ /pdf-to-jpg
+├ ○ /pdf-to-word
+├ ○ /protect-pdf
+├ ○ /rotate-pdf
+├ ○ /split-pdf
+├ ○ /unlock-pdf
+├ ○ /watermark-pdf
+└ ○ /word-to-pdf
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

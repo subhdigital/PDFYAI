@@ -1,0 +1,1 @@
+"use client"; import PDFToolBase from "@/components/tools/PDFToolBase"; export default function ToolPage() { return <PDFToolBase title="PROTECT PDF" description="Professional PDF tool." onProcess={async () => "#"} />; }

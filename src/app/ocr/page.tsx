@@ -1,0 +1,1 @@
+"use client"; import PDFToolBase from "@/components/tools/PDFToolBase"; export default function ToolPage() { return <PDFToolBase title="OCR" description="Professional PDF tool." onProcess={async () => "#"} />; }

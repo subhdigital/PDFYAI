@@ -1,0 +1,29 @@
+
+> pdf-app@0.1.0 build
+> next build --webpack
+
+[1m[38;2;173;127;168m▲ Next.js 16.1.6[39m[22m (webpack)
+- Environments: .env
+
+[37m[1m [22m[39m Creating an optimized production build ...
+[32m[1m✓[22m[39m Compiled successfully in 9.7s
+[37m[1m [22m[39m Running TypeScript ...
+[31mFailed to compile.
+[39m
+[36m.next/dev/types/validator.ts[39m:[33m207[39m:[33m31[39m
+[31m[1mType error[22m[39m: Type 'typeof import("C:/Users/Vishal Singh/Desktop/PDFYAI/src/app/api/jobs/[id]/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/jobs/[id]">'.
+  Types of property 'GET' are incompatible.
+    Type '(request: Request, { params }: { params: { id: string; }; }) => Promise<NextResponse<{ error: string; }> | NextResponse<{ status: JobStatus; error: string | undefined; downloadUrl: string | null; }>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ id: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ id: string; }>; }' is not assignable to type '{ params: { id: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'id' is missing in type 'Promise<{ id: string; }>' but required in type '{ id: string; }'.
+
+[0m [90m 205 |[39m   type __IsExpected[33m<[39m[33mSpecific[39m [36mextends[39m [33mRouteHandlerConfig[39m[33m<[39m[32m"/api/jobs/[id]"[39m[33m>>[39m [33m=[39m [33mSpecific[39m
+ [90m 206 |[39m   [36mconst[39m handler [33m=[39m {} [36mas[39m [36mtypeof[39m [36mimport[39m([32m"../../../src/app/api/jobs/[id]/route.js"[39m)
+[31m[1m>[22m[39m[90m 207 |[39m   type __Check [33m=[39m __IsExpected[33m<[39m[36mtypeof[39m handler[33m>[39m
+ [90m     |[39m                               [31m[1m^[22m[39m
+ [90m 208 |[39m   [90m// @ts-ignore[39m
+ [90m 209 |[39m   type __Unused [33m=[39m __Check
+ [90m 210 |[39m }[0m
+Next.js build worker exited with code: 1 and signal: null
