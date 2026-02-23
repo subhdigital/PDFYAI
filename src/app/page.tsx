@@ -146,8 +146,8 @@ export default function Home() {
                   <div className={`${tool.color} w-12 h-12 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-inherit/20`}>
                     <tool.icon className="text-white w-6 h-6" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-rose-600 transition-colors">{tool.name}</h3>
-                  <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                  <h3 className="text-xl font-bold mb-2 group-hover:text-rose-600 text-rose-600 transition-colors">{tool.name}</h3>
+                  <p className="text-black dark:text-black text-sm leading-relaxed">
                     {tool.description}
                   </p>
                 </Link>

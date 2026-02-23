@@ -1,0 +1,67 @@
+
+> pdf-app@0.1.0 build
+> next build --webpack
+
+[1m[38;2;173;127;168m▲ Next.js 16.1.6[39m[22m (webpack)
+- Environments: .env
+
+[37m[1m [22m[39m Creating an optimized production build ...
+[31mFailed to compile.
+[39m
+./node_modules/muhammara/node_modules/@mapbox/node-pre-gyp/lib/util/nw-pre-gyp/index.html
+Module parse failed: Unexpected token (1:0)
+You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders
+> <!doctype html>
+| <html>
+| <head>
+
+Import trace for requested module:
+./node_modules/muhammara/node_modules/@mapbox/node-pre-gyp/lib/util/nw-pre-gyp/index.html
+./node_modules/muhammara/node_modules/@mapbox/node-pre-gyp/lib/ sync ^\.\/.*$
+./node_modules/muhammara/node_modules/@mapbox/node-pre-gyp/lib/node-pre-gyp.js
+./node_modules/muhammara/lib/muhammara.js
+./node_modules/muhammara/lib/index.js
+./src/lib/processor.ts
+./src/app/api/jobs/create/route.ts
+
+./node_modules/muhammara/node_modules/@mapbox/node-pre-gyp/lib/mock/http.js
+[31m[1mModule not found[22m[39m: Can't resolve '[32mnock[39m'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/muhammara/node_modules/@mapbox/node-pre-gyp/lib/ sync ^\.\/.*$
+./node_modules/muhammara/node_modules/@mapbox/node-pre-gyp/lib/node-pre-gyp.js
+./node_modules/muhammara/lib/muhammara.js
+./node_modules/muhammara/lib/index.js
+./src/lib/processor.ts
+./src/app/api/jobs/create/route.ts
+
+./node_modules/muhammara/node_modules/@mapbox/node-pre-gyp/lib/mock/s3.js
+[31m[1mModule not found[22m[39m: Can't resolve '[32mmock-aws-s3[39m'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/muhammara/node_modules/@mapbox/node-pre-gyp/lib/ sync ^\.\/.*$
+./node_modules/muhammara/node_modules/@mapbox/node-pre-gyp/lib/node-pre-gyp.js
+./node_modules/muhammara/lib/muhammara.js
+./node_modules/muhammara/lib/index.js
+./src/lib/processor.ts
+./src/app/api/jobs/create/route.ts
+
+./node_modules/muhammara/node_modules/@mapbox/node-pre-gyp/lib/util/s3_setup.js
+[31m[1mModule not found[22m[39m: Can't resolve '[32maws-sdk[39m'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/muhammara/node_modules/@mapbox/node-pre-gyp/lib/ sync ^\.\/.*$
+./node_modules/muhammara/node_modules/@mapbox/node-pre-gyp/lib/node-pre-gyp.js
+./node_modules/muhammara/lib/muhammara.js
+./node_modules/muhammara/lib/index.js
+./src/lib/processor.ts
+./src/app/api/jobs/create/route.ts
+
+
+> Build failed because of webpack errors

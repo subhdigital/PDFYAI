@@ -1,0 +1,20 @@
+
+> pdf-app@0.1.0 build
+> next build --webpack
+
+▲ Next.js 16.1.6 (webpack)
+- Environments: .env
+
+  Creating an optimized production build ...
+Failed to compile.
+
+./src/lib/processor.ts
+Module not found: Can't resolve 'pdf-parse'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/api/jobs/create/route.ts
+
+
+> Build failed because of webpack errors

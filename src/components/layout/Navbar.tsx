@@ -36,7 +36,7 @@ export default function Navbar() {
                         <div className="relative group">
                             <button
                                 onMouseEnter={() => setIsToolsOpen(true)}
-                                className="flex items-center space-x-1 text-slate-600 dark:text-slate-300 hover:text-rose-600 transition-colors font-medium"
+                                className="flex items-center space-x-1 text-black dark:text-black hover:text-rose-600 transition-colors font-medium"
                             >
                                 <span>PDF Tools</span>
                                 <ChevronDown className="w-4 h-4" />
@@ -55,7 +55,7 @@ export default function Navbar() {
                                             <Link
                                                 key={tool.name}
                                                 href={tool.href}
-                                                className="px-4 py-2 rounded-xl hover:bg-rose-50 dark:hover:bg-rose-900/20 text-slate-600 dark:text-slate-300 hover:text-rose-600 transition-all font-medium"
+                                                className="px-4 py-2 rounded-xl hover:bg-rose-50 dark:hover:bg-rose-900/20 text-black dark:text-black hover:text-rose-600 transition-all font-medium"
                                             >
                                                 {tool.name}
                                             </Link>
@@ -65,7 +65,7 @@ export default function Navbar() {
                             </AnimatePresence>
                         </div>
 
-                        <Link href="/login" className="text-slate-600 dark:text-slate-300 hover:text-rose-600 transition-colors font-medium">Login</Link>
+                        <Link href="/login" className="text-black dark:text-black hover:text-rose-600 transition-colors font-medium">Login</Link>
                         <Link href="/signup" className="btn-primary py-2 px-5">Sign Up</Link>
                     </div>
 

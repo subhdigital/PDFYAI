@@ -11,6 +11,7 @@ interface PDFToolBaseProps {
     accept?: Record<string, string[]>;
     maxFiles?: number;
     onProcess: (files: File[]) => Promise<string>; // Returns download URL
+    children?: React.ReactNode;
 }
 
 export default function PDFToolBase({
@@ -18,7 +19,8 @@ export default function PDFToolBase({
     description,
     accept = { "application/pdf": [".pdf"] },
     maxFiles = 1,
-    onProcess
+    onProcess,
+    children
 }: PDFToolBaseProps) {
     const [files, setFiles] = useState<File[]>([]);
     const [status, setStatus] = useState<"idle" | "uploading" | "processing" | "completed" | "error">("idle");
@@ -148,6 +150,8 @@ export default function PDFToolBase({
                                         ))}
                                     </AnimatePresence>
                                 </div>
+
+                                {children}
 
                                 <div className="flex justify-center pt-8 border-t border-slate-100 dark:border-slate-800">
                                     <button
