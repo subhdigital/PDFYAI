@@ -9,7 +9,22 @@ export const processPDFJob = async (type: string, files: File[], payload: any = 
                 method: "POST",
                 body: formData,
             });
+
+            if (!res.ok) {
+                let errText = "Upload failed";
+                try {
+                    const errData = await res.json();
+                    errText = errData.error || errText;
+                } catch {
+                    // Fallback to text or status if JSON parse fails (e.g., NGINX 413 HTML page)
+                    errText = `Upload failed with status ${res.status}`;
+                }
+                throw new Error(errText);
+            }
+
             const { key } = await res.json();
+            if (!key) throw new Error("File upload succeeded but no reference key was returned.");
+
             return key;
         })
     );

@@ -9,6 +9,7 @@ import bcrypt from "bcryptjs";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
     adapter: MongoDBAdapter(clientPromise),
+    session: { strategy: "jwt" },
     secret: process.env.AUTH_SECRET,
     providers: [
         Google({
