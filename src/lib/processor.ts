@@ -41,10 +41,77 @@ export async function processJobLocally(jobId: string) {
             pages.forEach(page => page.setRotation(degrees(page.getRotation().angle + 90)));
             outputBuffer = Buffer.from(await pdfDoc.save());
         } else if (job.type === "WATERMARK") {
+            const { rgb } = require("pdf-lib");
             const pdfDoc = await PDFDocument.load(inputBuffer);
             const pages = pdfDoc.getPages();
-            pages.forEach(page => {
-                page.drawText(job.payload?.text || "PDFY AI", { x: 50, y: 50, size: 30, opacity: 0.5 });
+
+            const payload = job.payload || {};
+            const type = payload.type || "text";
+            const opacity = typeof payload.opacity !== 'undefined' ? parseFloat(payload.opacity) : 0.5;
+            const rotationAngle = parseInt(payload.rotation) || 0;
+            const posX = parseFloat(payload.positionX) || 50;
+            const posY = parseFloat(payload.positionY) || 50;
+
+            let imageEmbed = null;
+            if (type === "image" && payload.additionalKeys && payload.additionalKeys.length > 0) {
+                const imagePath = path.join(uploadDir, payload.additionalKeys[0]);
+                const imageBuffer = await fs.readFile(imagePath);
+                try {
+                    imageEmbed = await pdfDoc.embedPng(imageBuffer);
+                } catch {
+                    try {
+                        imageEmbed = await pdfDoc.embedJpg(imageBuffer);
+                    } catch (e) {
+                        console.error("Failed to embed image:", e);
+                    }
+                }
+            }
+
+            pages.forEach((page, index) => {
+                const { width, height } = page.getSize();
+
+                const pageConfig = (payload.positions && payload.positions[index]) || {};
+                const pagePosX = typeof pageConfig.positionX !== 'undefined' ? parseFloat(pageConfig.positionX) : posX;
+                const pagePosY = typeof pageConfig.positionY !== 'undefined' ? parseFloat(pageConfig.positionY) : posY;
+
+                const x = (pagePosX / 100) * width;
+                const y = ((100 - pagePosY) / 100) * height; // Inverting Y because PDF 0,0 is bottom-left
+
+                if (type === "text" || !imageEmbed) {
+                    const textStr = payload.text || "PDFY AI";
+                    const size = parseInt(payload.fontSize) || 40;
+
+                    let colorRgb = rgb(0, 0, 0);
+                    if (payload.color) {
+                        const hex = payload.color.replace(/^#/, '');
+                        if (hex.length === 6) {
+                            colorRgb = rgb(
+                                parseInt(hex.substring(0, 2), 16) / 255,
+                                parseInt(hex.substring(2, 4), 16) / 255,
+                                parseInt(hex.substring(4, 6), 16) / 255
+                            );
+                        }
+                    }
+
+                    page.drawText(textStr, {
+                        x, y,
+                        size,
+                        opacity,
+                        color: colorRgb,
+                        rotate: degrees(-rotationAngle) // matching web css rotation visually
+                    });
+                } else if (imageEmbed) {
+                    const fontSizeValue = parseInt(payload.fontSize) || 40;
+                    const stampWidth = (width * 0.4) * (fontSizeValue / 40);
+                    const scaleObj = imageEmbed.scaleToFit(stampWidth, stampWidth);
+                    page.drawImage(imageEmbed, {
+                        x, y,
+                        width: scaleObj.width,
+                        height: scaleObj.height,
+                        opacity,
+                        rotate: degrees(-rotationAngle)
+                    });
+                }
             });
             outputBuffer = Buffer.from(await pdfDoc.save());
         } else if (job.type === "SPLIT") {
@@ -97,6 +164,42 @@ export async function processJobLocally(jobId: string) {
                 }],
             });
             outputBuffer = await Packer.toBuffer(doc);
+        } else if (job.type === "WORD_TO_PDF") {
+            const mammoth = require("mammoth");
+            const result = await mammoth.extractRawText({ buffer: inputBuffer });
+            const text = result.value;
+
+            const pdfDoc = await PDFDocument.create();
+            let page = pdfDoc.addPage();
+            const { height } = page.getSize();
+            const fontSize = 12;
+            const margin = 50;
+            let y = height - margin;
+
+            const lines = text.split('\n');
+            for (const line of lines) {
+                const maxChars = 90;
+                let currentLine = line;
+                while (currentLine.length > 0 || currentLine === line) {
+                    let chunk = currentLine.substring(0, maxChars);
+                    currentLine = currentLine.substring(maxChars);
+
+                    if (y < margin) {
+                        page = pdfDoc.addPage();
+                        y = height - margin;
+                    }
+                    if (chunk.trim() !== "" || currentLine === line) {
+                        page.drawText(chunk, {
+                            x: margin,
+                            y: y,
+                            size: fontSize,
+                        });
+                        y -= (fontSize + 5);
+                    }
+                    if (currentLine === line) break; // if empty line
+                }
+            }
+            outputBuffer = Buffer.from(await pdfDoc.save());
         } else {
             // Placeholder for other tools
             outputBuffer = inputBuffer;

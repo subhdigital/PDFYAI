@@ -11,7 +11,7 @@ interface PDFToolBaseProps {
     accept?: Record<string, string[]>;
     maxFiles?: number;
     onProcess: (files: File[]) => Promise<string>; // Returns download URL
-    children?: React.ReactNode;
+    children?: React.ReactNode | ((files: File[]) => React.ReactNode);
 }
 
 export default function PDFToolBase({
@@ -34,8 +34,14 @@ export default function PDFToolBase({
         setError(null);
     }, [maxFiles]);
 
+    const onDropRejected = useCallback(() => {
+        setError("Invalid file type uploaded. Please upload a valid document.");
+        setStatus("error");
+    }, []);
+
     const { getRootProps, getInputProps, isDragActive } = useDropzone({
         onDrop,
+        onDropRejected,
         accept,
         maxFiles
     });
@@ -151,7 +157,7 @@ export default function PDFToolBase({
                                     </AnimatePresence>
                                 </div>
 
-                                {children}
+                                {typeof children === 'function' ? children(files) : children}
 
                                 <div className="flex justify-center pt-8 border-t border-slate-100 dark:border-slate-800">
                                     <button

@@ -16,6 +16,7 @@
     "docx": "^9.5.3",
     "framer-motion": "^12.34.2",
     "lucide-react": "^0.575.0",
+    "mammoth": "^1.11.0",
     "mongodb": "^7.1.0",
     "mongoose": "^9.2.1",
     "muhammara": "^6.0.3",
