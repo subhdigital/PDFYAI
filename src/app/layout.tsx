@@ -37,6 +37,26 @@ export default function RootLayout({
             `,
           }}
         />
+        <Script
+          id="schema-structured-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "PDFY AI",
+              "url": "https://pdfyai.com",
+              "description": "All-in-one PDF Power Tools including merge, split, compress, convert, rotate, and unlock PDFs securely without losing quality.",
+              "applicationCategory": "BusinessApplication",
+              "operatingSystem": "All",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            })
+          }}
+        />
       </head>
       <body className={`${inter.className} antialiased selection:bg-rose-100 selection:text-rose-900`}>
         <Providers>
